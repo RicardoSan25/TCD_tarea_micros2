@@ -2,6 +2,8 @@
 Trabajo de micros 2,Implementar mediante el modelo de Máquina de Estados Finitos (MEF) el antirrebote de teclas y la lógica de funcionamiento de un semáforo.
 
 # Máquina de estado del semáforo
+El modulo de software en la carpeta lib-semaforo con los archivos semaforo.cpp y semaforo.h
+
   Vamos a tener tres modos normales de estado identificados por los colores que predominan en un semáforo [verde, amarillo, rojo], donde vemos que podemos pasar un estado a otro, usando el desplazamiento en tiempo y la solución de un pulsante no bloqueante.
   # Debe cumplir con lo siguiente modos de operación
 La secuencia normal con la secuencia de Leds, donde si esta en verde un T=3s, pasa amarillo a un T=500mseg para pasar a rojo a un T=2seg, y luego repite esta secuencia nuevamente. hasta que ingresemos alguna acción que la generara los pulsantes no bloqueantes.
