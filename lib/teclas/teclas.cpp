@@ -1,11 +1,11 @@
 #include <Arduino.h>
 #include <teclas.h>
 #include <uart.h>
-bool flanco_push1 = false; 
-bool flanco_push2 = false;
+bool flanco_push1 = false;  // Flanco descendente pulsante 1
+bool flanco_push2 = false;  //Flanco descendente pulsante 2
 
 
-bool buttonPressed(int16_t tecla){ 
+bool buttonPressed(int16_t tecla){     // Funcion correspondientes al flanco descendente, pulsante se presiono
     static bool prev_state = true; 
     bool act_state = digitalRead(tecla);
     bool result = false;
@@ -17,7 +17,7 @@ bool buttonPressed(int16_t tecla){
     return result; 
 }
 
-bool buttonReleased(int16_t tecla){
+bool buttonReleased(int16_t tecla){   // Funcion correspondientes al flanco ascendente, pulsante se libero
     static bool prev_state = true; 
     bool act_state = digitalRead(tecla);
     bool result = true;
@@ -29,7 +29,7 @@ bool buttonReleased(int16_t tecla){
     return result; 
 }
 
-bool* inicializar_MEF(int16_t push1, int16_t push2, int16_t time2){
+bool* inicializar_MEF(int16_t push1, int16_t push2, int16_t time2){   //Funcion de inicialización
     static var_estado es = BU1_BU2; 
     struct_actualizar datos;
     bool* vector = (bool*)malloc(2*sizeof(bool));
@@ -45,7 +45,7 @@ bool* inicializar_MEF(int16_t push1, int16_t push2, int16_t time2){
     return vector;
 }
 
-var_estado actualizar_MEF(struct_actualizar vstr_actualizar){
+var_estado actualizar_MEF(struct_actualizar vstr_actualizar){    // Función de actualizar e implementacion de MEF para antirebote con switch-case
     static int16_t time_pass = 0;
     static int16_t time_present = 0;
     static bool es_time = false; 
